@@ -1,1 +1,8 @@
 <h2>Hello World</h2>
+<%- if current_user.blank? -%>
+  <%= link_to 'sign up', new_user_registration_path  %>
+  or
+  <%= link_to 'sign in', new_user_session_path  %>
+<%- else -%>
+  You're signed in! To sign out go to <%= link_to 'sign out', destroy_user_session_path, :method => :delete %>
+<%- end -%>
