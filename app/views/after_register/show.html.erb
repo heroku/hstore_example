@@ -1,0 +1,6 @@
+<h2>Thanks for Signing Up</h2>
+<p>Please Fill in your zip code!</p>
+<%= form_for(@user) do |f| %>
+  <%= f.text_field :zip, :placeholder => "zip code" %>
+  <%= f.submit 'Next', :class => 'btn btn-primary' %>
+<% end %>

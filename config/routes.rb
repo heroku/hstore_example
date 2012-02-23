@@ -1,8 +1,12 @@
 WickedExample::Application.routes.draw do
-  devise_for :users
 
-  resources  :users
-  root :to => "pages#index"
+  devise_for  :users, :controllers => { :registrations => "registrations" }
+
+  root        :to => "pages#index"
+
+  resources   :after_register
+
+  resources   :users
 
 
   # The priority is based upon order of creation:
