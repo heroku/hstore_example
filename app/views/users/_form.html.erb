@@ -7,67 +7,12 @@
 </div>
 
 <div class="clearfix">
-   <%= f.label :encrypted_password, t("activerecord.attributes.user.encrypted_password", :default => "Encrypted password"), :class => :label %>
+   <%= f.label :zip, t("activerecord.attributes.user.zip", :default => "Zip"), :class => :label %>
   <div class="input">
-    <%= f.text_field :encrypted_password, :class => 'text_field' %>
+    <%= f.text_field :zip, :class => 'text_field' %>
   </div>
 </div>
 
-<div class="clearfix">
-   <%= f.label :reset_password_token, t("activerecord.attributes.user.reset_password_token", :default => "Reset password token"), :class => :label %>
-  <div class="input">
-    <%= f.text_field :reset_password_token, :class => 'text_field' %>
-  </div>
-</div>
-
-<div class="clearfix">
-   <%= f.label :reset_password_sent_at, t("activerecord.attributes.user.reset_password_sent_at", :default => "Reset password sent at"), :class => :label %>
-  <div class="input">
-    <%= f.datetime_select :reset_password_sent_at, :class => 'datetime_select' %>
-  </div>
-</div>
-
-<div class="clearfix">
-   <%= f.label :remember_created_at, t("activerecord.attributes.user.remember_created_at", :default => "Remember created at"), :class => :label %>
-  <div class="input">
-    <%= f.datetime_select :remember_created_at, :class => 'datetime_select' %>
-  </div>
-</div>
-
-<div class="clearfix">
-   <%= f.label :sign_in_count, t("activerecord.attributes.user.sign_in_count", :default => "Sign in count"), :class => :label %>
-  <div class="input">
-    <%= f.number_field :sign_in_count, :class => 'number_field' %>
-  </div>
-</div>
-
-<div class="clearfix">
-   <%= f.label :current_sign_in_at, t("activerecord.attributes.user.current_sign_in_at", :default => "Current sign in at"), :class => :label %>
-  <div class="input">
-    <%= f.datetime_select :current_sign_in_at, :class => 'datetime_select' %>
-  </div>
-</div>
-
-<div class="clearfix">
-   <%= f.label :last_sign_in_at, t("activerecord.attributes.user.last_sign_in_at", :default => "Last sign in at"), :class => :label %>
-  <div class="input">
-    <%= f.datetime_select :last_sign_in_at, :class => 'datetime_select' %>
-  </div>
-</div>
-
-<div class="clearfix">
-   <%= f.label :current_sign_in_ip, t("activerecord.attributes.user.current_sign_in_ip", :default => "Current sign in ip"), :class => :label %>
-  <div class="input">
-    <%= f.text_field :current_sign_in_ip, :class => 'text_field' %>
-  </div>
-</div>
-
-<div class="clearfix">
-   <%= f.label :last_sign_in_ip, t("activerecord.attributes.user.last_sign_in_ip", :default => "Last sign in ip"), :class => :label %>
-  <div class="input">
-    <%= f.text_field :last_sign_in_ip, :class => 'text_field' %>
-  </div>
-</div>
 <div class="form-actions">
   <button class="btn primary" type="submit">Save</button> or
 	<%= link_to "Cancel", users_path %>
