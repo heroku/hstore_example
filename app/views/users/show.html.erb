@@ -2,33 +2,6 @@
 <label class="label"><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</label>
 <p><%= @user.email %></p>
 
-<label class="label"><%= t("activerecord.attributes.user.encrypted_password", :default => t("activerecord.labels.encrypted_password", :default => "Encrypted password")) %>:</label>
-<p><%= @user.encrypted_password %></p>
-
-<label class="label"><%= t("activerecord.attributes.user.reset_password_token", :default => t("activerecord.labels.reset_password_token", :default => "Reset password token")) %>:</label>
-<p><%= @user.reset_password_token %></p>
-
-<label class="label"><%= t("activerecord.attributes.user.reset_password_sent_at", :default => t("activerecord.labels.reset_password_sent_at", :default => "Reset password sent at")) %>:</label>
-<p><%= @user.reset_password_sent_at %></p>
-
-<label class="label"><%= t("activerecord.attributes.user.remember_created_at", :default => t("activerecord.labels.remember_created_at", :default => "Remember created at")) %>:</label>
-<p><%= @user.remember_created_at %></p>
-
-<label class="label"><%= t("activerecord.attributes.user.sign_in_count", :default => t("activerecord.labels.sign_in_count", :default => "Sign in count")) %>:</label>
-<p><%= @user.sign_in_count %></p>
-
-<label class="label"><%= t("activerecord.attributes.user.current_sign_in_at", :default => t("activerecord.labels.current_sign_in_at", :default => "Current sign in at")) %>:</label>
-<p><%= @user.current_sign_in_at %></p>
-
-<label class="label"><%= t("activerecord.attributes.user.last_sign_in_at", :default => t("activerecord.labels.last_sign_in_at", :default => "Last sign in at")) %>:</label>
-<p><%= @user.last_sign_in_at %></p>
-
-<label class="label"><%= t("activerecord.attributes.user.current_sign_in_ip", :default => t("activerecord.labels.current_sign_in_ip", :default => "Current sign in ip")) %>:</label>
-<p><%= @user.current_sign_in_ip %></p>
-
-<label class="label"><%= t("activerecord.attributes.user.last_sign_in_ip", :default => t("activerecord.labels.last_sign_in_ip", :default => "Last sign in ip")) %>:</label>
-<p><%= @user.last_sign_in_ip %></p>
-
 <div class="form-actions">
 <%= link_to "Back", users_path, :class => 'btn'  %>
 <%= link_to "Edit", edit_user_path(@user), :class => 'btn' %>
