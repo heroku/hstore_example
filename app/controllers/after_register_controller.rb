@@ -3,7 +3,7 @@ class AfterRegisterController < ApplicationController
 
 
   def show
-    @user = User.last
+    @user = current_user
   end
 
   def update
