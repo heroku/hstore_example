@@ -1,0 +1,28 @@
+<h2>Product</h2>
+
+<label class="label">
+  <%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>:
+</label>
+<p><%= @product.name %></p>
+
+<div class='clearfix attributeContainer'>
+  <label class="label" for="product_data">Data Attributes</label>
+  <div class='row'>
+    <p class='span4 underline'>Name</p>
+    <p class='span4 underline'>Value</p>
+  </div>
+  <% @product.data.try(:each) do |key, value| %>
+    <div class='row'>
+      <p class='span4'>
+        <%= key %>
+      </p>
+      <p class='span4'><%= value %></p>
+    </div>
+  <%- end -%>
+</div>
+
+<div class="form-actions">
+<%= link_to "Back", products_path, :class => 'btn'  %>
+<%= link_to "Edit", edit_product_path(@product), :class => 'btn' %>
+<%= link_to "Delete", product_path(@user), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn' %>
+</div>

@@ -1,8 +1,14 @@
-<h2>Main Page</h2>
+<h2>Hstore Demo</h2>
+<p> Welcome, to get started create a user account. Once you're signed in, you can create 'Products'</p>
 <%- if current_user.blank? -%>
   <%= link_to 'sign up', new_user_registration_path  %>
   or
   <%= link_to 'sign in', new_user_session_path  %>
 <%- else -%>
-  You're signed in! To sign out go to <%= link_to 'sign out', destroy_user_session_path, :method => :delete %>
+  You're signed in!
+    <%= link_to 'Create Product' , new_product_path, :class => 'btn btn-primary' %>  or view
+
+    <%= link_to 'Your Products', products_path %>
 <%- end -%>
+
+

@@ -1,12 +1,13 @@
-WickedExample::Application.routes.draw do
+Example::Application.routes.draw do
 
-  devise_for  :users, :controllers => { :registrations => "registrations" }
+  devise_for  :users
 
   root        :to => "pages#index"
 
   resources   :after_register
 
   resources   :users
+  resources   :products
 
 
   # The priority is based upon order of creation:

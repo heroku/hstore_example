@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-WickedExample::Application.load_tasks
+Example::Application.load_tasks

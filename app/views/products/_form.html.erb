@@ -1,0 +1,72 @@
+
+<div class="clearfix">
+   <%= f.label :name, :class => :label %>
+  <div class="input">
+    <%= f.text_field :name, :class => 'text_field', :placeholder => "Product Name" %>
+  </div>
+</div>
+
+<div class='clearfix attributeContainer'>
+  <label class="label" for="product_data">Data Attributes</label>
+  <div class='row'>
+    <p class='span4 underline'>Name</p>
+    <p class='span4 underline'>Value</p>
+  </div>
+
+  <%= f.fields_for :data, @product.data do |d| %>
+    <% @product.data.try(:each) do |key, value| %>
+        <div class="row">
+          <p class='span4'>
+            <%= text_field_tag key, key, :class => 'text_field dynamicAttributeName' %>
+          </p>
+          <p class='span4'>
+            <%= d.text_field value, :class => 'text_field', :value => value %>
+          </p>
+          <p class='span1'>
+            <a herf='#' class='btn removeRow'>X</a>
+          </p>
+        </div>
+    <% end %>
+  <%- end -%>
+
+  <div class='row attributeTemplate <%= 'hidden' if @product.data.present? %>'>
+    <p class='span4'>
+      <input class='text_field dynamicAttributeName' id='' name='' placeholder='New Attribute name' size='30' type='text' />
+    </p>
+    <p class='span4'><input class='text_field' id='bar' name='' placeholder='value' size='30'  type='text'  /></p>
+    <p class='span1'><a herf='#' class='btn removeRow'>X</a></p>
+  </div>
+  <%= link_to 'Add Attribute', '#', :class => 'btn addAttribute btn-primary' %>
+</div>
+
+
+
+<div class="form-actions">
+  <%= f.submit 'Save', :class => 'btn primary' %> or
+	<%= link_to "Cancel", request.referrer || products_path %>
+</div>
+
+
+
+<%= content_for :js do %>
+  <script type='text/javascript'>
+   $('.attributeContainer').delegate('.dynamicAttributeName', 'keyup', function(event){
+     nameElem  = $(this);
+     valueElem = nameElem.closest('.row').children('p').children('.text_field')
+     value     = nameElem.val();
+     valueElem.attr('id',          'product_data_' + value       );
+     valueElem.attr('name',        'product[data][' + value + ']');
+     valueElem.attr('placeholder', 'value for ' + value          );
+   })
+
+   $('.attributeContainer').delegate('.removeRow', 'click', function(){
+     console.log($(this).closest('.row'))
+     $(this).closest('.row').html('');
+   })
+
+   $('.addAttribute').on('click', function(){
+     contents = "<div class='row'>" + $('.attributeTemplate').html() + '</div>';
+     $(this).before(contents);
+   })
+  </script>
+<%- end -%>

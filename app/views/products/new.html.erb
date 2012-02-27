@@ -1,0 +1,4 @@
+<h2>Add a Product!</h2>
+<%= form_for @product, :html => { :class => :form } do |f| -%>
+  <%= render :partial => "form", :locals => {:f => f} %>
+<% end -%>
