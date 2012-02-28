@@ -20,7 +20,7 @@
             <%= text_field_tag key, key, :class => 'text_field dynamicAttributeName' %>
           </p>
           <p class='span4'>
-            <%= d.text_field value, :class => 'text_field', :value => value %>
+            <%= d.text_field key, :class => 'text_field', :value => value %>
           </p>
           <p class='span1'>
             <a herf='#' class='btn removeRow'>X</a>
@@ -53,7 +53,7 @@
    $('.attributeContainer').delegate('.dynamicAttributeName', 'keyup', function(event){
      nameElem  = $(this);
      valueElem = nameElem.closest('.row').children('p').children('.text_field')
-     value     = nameElem.val();
+     value     = nameElem.val().toLowerCase();
      valueElem.attr('id',          'product_data_' + value       );
      valueElem.attr('name',        'product[data][' + value + ']');
      valueElem.attr('placeholder', 'value for ' + value          );
