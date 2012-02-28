@@ -2,7 +2,7 @@ development:
   adapter: postgresql
   encoding: utf8
   reconnect: false
-  database: example_development
+  database: hstore_example_development
   pool: 5
   host: localhost
   # username: root
@@ -12,7 +12,7 @@ test:
   adapter: postgresql
   encoding: utf8
   reconnect: false
-  database: example_test
+  database: hstore_example_test
   pool: 5
   host: localhost
   # username: root
@@ -21,7 +21,7 @@ production:
   adapter: postgresql
   encoding: utf8
   reconnect: false
-  database: example_production
+  database: hstore_example_production
   pool: 5
   host: localhost
   # username: root
