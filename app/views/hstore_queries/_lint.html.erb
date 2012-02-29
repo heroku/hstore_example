@@ -1,0 +1,83 @@
+
+<%= form_tag hstore_queries_path, :method => :get, :remote => true, :id => 'hstore_query' do %>
+
+  <p>Find:</p>
+  <%= select_tag 'query_type', "<option value='key_eql'>key equal to ?</option>
+                                <option value='key_value_eql'>key equal to value</option>
+                                <option value='key_not_value'>key not equal to value</option>
+                                <option value='key_like_value'>key like value</option>".html_safe %>
+
+  <%= text_field_tag   :key   , nil, :placeholder => 'Key' %>
+  <%= text_field_tag   :value , nil, :placeholder => 'Value', :class => 'hide' %>
+
+  <br />
+  <%= submit_tag "Run Query", :class => 'btn btn-primary' %>
+
+<%- end -%>
+
+
+<div class = 'queryExample key_eql'>
+  <h4>Key Equal to 'foo'</h4>
+  <pre><code>Product.where("data ? 'foo'")</code></pre>
+</div>
+
+<div class = 'queryExample hide key_value_eql'>
+  <h4>Key of 'foo' equal to 'bar'</h4>
+  <pre><code>Product.where("data @> 'foo=>bar'")</code></pre>
+</div>
+
+<div class = 'queryExample hide key_not_value'>
+  <h4>Key of 'foo' not equal to 'bar'</h4>
+  <pre><code>Product.where("not data @> 'foo=>bar'")</code></pre>
+</div>
+
+<div class = 'queryExample hide key_like_value'>
+  <h4>Key of 'foo' equal LIKE 'bar'</h4>
+  <pre><code>Product.where("data -> 'foo' LIKE '%bar%'")</code></pre>
+</div>
+
+<hr />
+
+<div class='result hide'>
+  <h4>Result:</4>
+  <pre><code id='codeResult'></code></pre>
+</div>
+
+<div class='spinner hide'><%= image_tag 'spinner.gif' %></div>
+
+
+
+<%= content_for :js do %>
+  <script type='text/javascript'>
+  $(document).ready(function(){
+      $('#query_type').on('click', function(){
+        value = $(this).val();
+        $('.queryExample').hide();
+        $('.' + value).show();
+        $('.result').hide();
+        
+        if (value != 'key_eql') {
+          $('#value').show();
+        } else {
+          $('#value').hide();
+        }
+      });
+
+      $('#hstore_query').bind("ajax:beforeSend", function(){
+        $('.result').hide();        
+        $('.spinner').show();
+        
+      }).bind('ajax:success', function(evt, data, status, xhr){
+        $('.result').show();        
+        $('.spinner').hide();
+        console.log(data.length);
+        console.log(data.toString());
+        
+        if ( data.length === 0 ) { data = "[ No records ]" };
+        $('#codeResult').html(data);
+      });
+    
+  })
+  </script>
+<% end %>
+

@@ -26,3 +26,8 @@
 <%= link_to "Edit", edit_product_path(@product), :class => 'btn' %>
 <%= link_to "Delete", product_path(@user), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn' %>
 </div>
+
+
+<h2>Hstore Queries</h2>
+<p> Query the whole database for hstore keys/values for products, see if you can find this exact product</p>
+<%= render :partial => 'hstore_queries/lint' %>

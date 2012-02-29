@@ -8,6 +8,7 @@ Example::Application.routes.draw do
 
   resources   :users
   resources   :products
+  resources   :hstore_queries
 
 
   # The priority is based upon order of creation:

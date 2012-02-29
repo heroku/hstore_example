@@ -1,6 +1,6 @@
 <h2>Hstore Demo</h2>
-<p> Welcome, to get started create a user account. Once you're signed in, you can create 'Products'</p>
 <%- if current_user.blank? -%>
+<p> Welcome, to get started create a user account. Once you're signed in, you can create '<strong>Products</strong>'</p>
   <%= link_to 'sign up', new_user_registration_path  %>
   or
   <%= link_to 'sign in', new_user_session_path  %>
@@ -11,4 +11,31 @@
     <%= link_to 'Your Products', products_path %>
 <%- end -%>
 
+<hr />
 
+
+<h2>What is Hstore?</h2>
+<p>Hstore is a schemaless key value column in Postgres. It's perfect if you need to store attributes for an object but aren't quite sure what your schema should be. Maybe we start selling '<strong>Products</strong>' that have an author and an isbn, but then we want to start selling cameras, or computer equipment we'll need to store other things like amount of ram or manufacturer.</p>
+
+<p>In Rails we can use hstore like a hash, you can input any key and any value you want. Once it's stored you can query the keys or values. If you've ever used a serialized hash column, hstore behaves much like that. The main difference is performance, since hstore is storing the keys and values natively in Postgres, queries run orders of magnitude faster.</p>
+
+<p>To get started you can create a user account by signing up and then create products with arbitrary keys and values. You can also use the hstore query widget below to explore the products in the entire database</p>
+
+<hr />
+
+
+<h2>Heroku &amp; Hstore</h2>
+<p><a href='Heroku'></a> supports Postgres through contributions to the open-source code, and by running managed dedicated Postgres instances for customers. If you're using the Postgres Addon and have a managed database with Heroku, you can now <a href='https://postgres.heroku.com/blog/past/2012/2/24/the_mvcc_acidcompliant_schemaless_datastore_postgresql/'>start using hstore</a>. If you have an existing managed database, or you would like to move from a shared database to a dedicated one, you can <a href='http://devcenter.heroku.com/articles/migrating-data-between-plans'>upgrade your database</a>.</p>
+
+<p>
+If you want to try hstore before you spin up a database, you can use this website running on Heroku. You can log in and create products to query against, and use the query widget below. 
+</p>
+
+
+<hr />
+
+<h2>Hstore Queries</h2>
+<p>Quering hstore keys and values is easy, pick your query type and enter a key/value, then run your query against live data on this site.</p>
+
+
+<%= render :partial => 'hstore_queries/lint' %>
