@@ -1,4 +1,6 @@
-## Hstore Example App
+## Hstore Example App for Heroku
+
+To view a working demo go to [Heroku's Hstore Demo](http://hstoredemo.herokuapp.com/) online. 
 
 Ensure you've got a recent version of Postgres (9.1 and up) by running `psql --version`. Upgrade if necessary. Clone this repo to your had drive. Move into that directory and run:
 
