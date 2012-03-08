@@ -2,18 +2,23 @@
 <%= link_to "Create Product", new_product_path %>
 
 <label class="label" for="product_data">Your Products</label>
-<% @products.each do |product| %>
-  <div>
-    <%= link_to product.name, product %> | 
-    <%= link_to 'Edit', edit_product_path(product) %> |
-    Data:
-    <span>
-      <%- product.data.try(:each) do |key, value| -%>
-        {'<%= key %>' => '<%= value %>'}
-      <%- end -%>
-    </span>
-  </div>
-<%- end -%>
+<table>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= link_to product.name, product %> &nbsp; </td>
+      <td><%= link_to 'Edit', edit_product_path(product) %> &nbsp; </td>
+      <td>
+
+        Data:
+        <span>
+          <%- product.data.try(:each) do |key, value| -%>
+            {'<%= key %>' => '<%= value %>'}
+          <%- end -%>
+        </span>
+      </td>
+    </tr>
+  <%- end -%>
+</table>
 
 <hr />
 
