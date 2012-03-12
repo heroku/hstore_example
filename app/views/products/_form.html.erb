@@ -9,17 +9,17 @@
 <div class='clearfix attributeContainer'>
   <label class="label" for="product_data">Data Attributes</label>
   <div class='row'>
-    <p class='span4 underline'>Name</p>
-    <p class='span4 underline'>Value</p>
+    <p class='span3 underline'>Name</p>
+    <p class='span3 underline'>Value</p>
   </div>
 
   <%= f.fields_for :data, @product.data do |d| %>
     <% @product.data.try(:each) do |key, value| %>
         <div class="row">
-          <p class='span4'>
+          <p class='span3'>
             <%= text_field_tag key, key, :class => 'text_field dynamicAttributeName' %>
           </p>
-          <p class='span4'>
+          <p class='span3'>
             <%= d.text_field key, :class => 'text_field', :value => value %>
           </p>
           <p class='span1'>
@@ -30,10 +30,10 @@
   <%- end -%>
 
   <div class='row attributeTemplate <%= 'hide' if @product.data.present? %>'>
-    <p class='span4'>
+    <p class='span3'>
       <input class='text_field dynamicAttributeName' id='' name='' placeholder='New Attribute name' size='30' type='text' />
     </p>
-    <p class='span4'><input class='text_field' id='bar' name='' placeholder='value' size='30'  type='text'  /></p>
+    <p class='span3'><input class='text_field' id='bar' name='' placeholder='value' size='30'  type='text'  /></p>
     <p class='span1'><a herf='#' class='btn removeRow'>X</a></p>
   </div>
   <%= link_to 'Add Attribute', '#', :class => 'btn addAttribute btn-primary' %>

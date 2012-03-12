@@ -8,15 +8,15 @@
 <div class='clearfix attributeContainer'>
   <label class="label" for="product_data">Data Attributes</label>
   <div class='row'>
-    <p class='span4 underline'>Name</p>
-    <p class='span4 underline'>Value</p>
+    <p class='span3 underline'>Name</p>
+    <p class='span3 underline'>Value</p>
   </div>
   <% @product.data.try(:each) do |key, value| %>
     <div class='row'>
-      <p class='span4'>
+      <p class='span3'>
         <%= key %>
       </p>
-      <p class='span4'><%= value %></p>
+      <p class='span3'><%= value %></p>
     </div>
   <%- end -%>
 </div>
