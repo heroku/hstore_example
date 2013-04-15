@@ -55,7 +55,7 @@ As you see above, we can store any types of values that we want into the hstore.
       Product.where("not data @> (:key => :value)", :key => 'pages', :value => '999')
 
       # Find all products having key 'author' and value like 'ba' in data
-      Product.where("data -> :key LIKE :value",     :key => 'author, :value => "%Kat%")
+      Product.where("data -> :key LIKE :value",     :key => 'author', :value => "%Kat%")
 ```
 
 ## Contact
